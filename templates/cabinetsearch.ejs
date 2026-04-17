@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск кабинета</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <span>
+            <img src="images\logo.png" width="150">
+        </span>
+        <nav>
+            <a href="/"><b>Главное</b></a>
+            <a href="about"><b>О нас</b></a>
+            <a href="CabinetSearch"><b>Поиск кабинета</b></a>
+            <a href="teachers"><b>Преподаватели</b></a>
+        </nav>
+    </header>
+
+    <div class="cabinet-search-container">
+        <form class="cabinet-search-form" id="searchForm">
+            <h2>Поиск аудитории</h2>
+            <p>Введите номер аудитории/ название корпуса, например: А220 или Корпус Б</p>
+
+            <div class="search-wrapper">
+                <!-- Выпадающий список аудиторий -->
+                <select id="cabinetSelect" class="cabinet-select" aria-label="Выберите аудиторию из списка">
+                    <option value="">-- Выберите аудиторию/корпус --</option>
+                </select>
+
+                <!-- Или ручной ввод -->
+                <input
+                    type="text"
+                    name="cabinet"
+                    placeholder="Номер аудитории или название корпуса..."
+                    class="cabinet-search-input"
+                    aria-label="Введите номер аудитории/корпус"
+                >
+
+                <button type="submit" class="cabinet-search-button" aria-label="Найти аудиторию">
+                    🔍
+                </button>
+            </div>
+
+            <!-- Блок для отображения результатов -->
+            <div id="searchResults" class="search-results"></div>
+        </form>
+    </div>
+
+    <!-- JS код -->
+    <script>
+        // База данных аудиторий (замените на реальные данные)
+        const cabinetsDB = {
+            'Главный корпус': 'Главным корпусом колледжа является корпус А',
+            'Корпус А': 'Главным корпусом колледжа является корпус А',
+            'Администрация': 'Все кабинеты администрации находятся на 2-ом этаже корпуса А',
+            'А312': 'Аудитория А312 — 3‑й этаж, корпус А',
+            'А313': 'Аудитория А220 — 2‑й этаж, корпус А (в самом коце этажа, дверь слева)',
+            'А303': 'Аудитория А220 — 2‑й этаж, корпус А',
+            'А220': 'Аудитория А220 — 2‑й этаж, корпус А',
+            'Корпус Б': 'Корпус Б — Вход находится по адресу: ул. Красноярская, 26. (Вход со стороны ул. Николая Буды)',
+            'Б208': 'Б208 — 2-й этаж Б корпуса',
+            'Столовая': 'Столовая — 1‑й этаж, корпуса Б',
+            'Корпус М': 'Вход для студентов находиться во внутренем дворе колледжа',
+            'М5': 'Аудитория М5 — находиться в корпусе М',
+        };
+
+        // Заполняем выпадающий список
+        const selectElement = document.getElementById('cabinetSelect');
+        Object.keys(cabinetsDB).forEach(key => {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = key;
+            selectElement.appendChild(option);
+        });
+
+        // Обработчик выбора из выпадающего списка
+        selectElement.addEventListener('change', function() {
+            const selectedValue = this.value;
+            if (selectedValue) {
+                // Автоматически заполняем поле ввода и запускаем поиск
+                document.querySelector('.cabinet-search-input').value = selectedValue;
+                performSearch(selectedValue);
+            }
+        });
+
+        // Обработчик отправки формы
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const query = document.querySelector('.cabinet-search-input').value.trim();
+            performSearch(query);
+        });
+
+        // Функция поиска и отображения результатов
+        function performSearch(query) {
+            const resultsDiv = document.getElementById('searchResults');
+
+            // Очищаем предыдущие результаты
+            resultsDiv.innerHTML = '';
+
+            if (!query) {
+                resultsDiv.innerHTML = '<p class="error">Пожалуйста, введите номер аудитории или название корпуса</p>';
+                return;
+            }
+
+            // Поиск по базе данных
+            if (cabinetsDB[query]) {
+                resultsDiv.innerHTML = `<p class="success">✅ ${cabinetsDB[query]}</p>`;
+            } else {
+                resultsDiv.innerHTML = `<p class="error">❌ Помещение "${query}" не найдено. Проверьте номер/название и попробуйте снова.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

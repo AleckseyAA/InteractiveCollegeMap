@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преподаватели</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Стили для формы выбора преподавателя */
+        #teacherForm {
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 139, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #00008B; /* тёмно‑синий */
+            font-size: 18px;
+        }
+
+        select {
+            padding: 12px 15px;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #daa520; /* золотая рамка */
+            border-radius: 8px;
+            background-color: #fff; /* белый фон */
+            color: #333; /* тёмно‑серый текст */
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #00008B; /* тёмно‑синий при фокусе */
+            box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2); /* золотая тень */
+        }
+
+        /* Стили для карточки преподавателя */
+        #teacherInfo {
+            margin-top: 30px;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+        }
+
+        .teacher-card {
+            background: #fff; /* белый фон карточки */
+            border-radius: 12px;
+            padding: 25px;
+            margin: 0 auto;
+            max-width: 700px;
+            box-shadow: 0 5px 20px rgba(0, 0, 139, 0.15);
+            animation: fadeIn 0.5s ease;
+            border: 1px solid #E0E0E0; /* светло‑серая рамка */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .teacher-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00008B; /* тёмно‑синий */
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #daa520; /* золотая линия */
+            padding-bottom: 10px;
+        }
+
+        .teacher-details {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .teacher-details p {
+            margin: 12px 0;
+            color: #444; /* тёмно‑серый */
+        }
+
+        .teacher-details strong {
+            color: #daa520; /* золотой акцент */
+            font-weight: 600;
+        }
+
+        /* Стиль для сообщения по умолчанию */
+        .default-message {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 40px;
+            background: #F5F5DC; /* светло‑бежевый фон */
+            border-radius: 8px;
+            border-left: 4px solid #daa520; /* золотая полоса слева */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>
+            <img src="images\logo.png" width="150" alt="Логотип Канского политехнического колледжа">
+        </span>
+        <nav>
+            <a href="/"><b>Главное</b></a>
+            <a href="about"><b>О нас</b></a>
+            <a href="CabinetSearch"><b>Поиск кабинета</b></a>
+            <a href="teachers"><b>Преподаватели</b></a>
+        </nav>
+    </header>
+
+    <form id="teacherForm">
+        <label for="teacherSelect">Выберите преподавателя:</label>
+        <select id="teacherSelect" name="teacher">
+            <option value="">-- Выберите преподавателя --</option>
+            <option value="teacher1">Тонконогова Ирина Викторовна</option>
+            <option value="teacher2">Снопкова Юлия Юрьевна</option>
+            <option value="teacher3">Атмайкина Ольга Сергеевна</option>
+            <option value="teacher4">Александров Виктор Викторович</option>
+            <option value="teacher5">Гребнев Виталий Алексеевич</option>
+            <option value="teacher6">Заичкина Оксана Владимировна</option>
+            <option value="teacher7">Кузнецова Елена Геннадьевна</option>
+            <option value="teacher8">Саку Вероника Владимировна</option>
+        </select>
+    </form>
+
+    <div id="teacherInfo">
+        <!-- Сообщение по умолчанию -->
+        <div class="default-message">Выберите преподавателя из списка, чтобы увидеть информацию.</div>
+    </div>
+
+    <script>
+        // Данные о преподавателях
+        const teachersData = {
+            teacher1: {
+                name: "Тонконогова Ирина Викторовна",
+                subject: "Математика/Информатика",
+                degree: "Б208",
+                experience: "-",
+                description: "Тонконогова Ирина Викторовна — учитель математики и информатики. Обладает глубокими знаниями в предметных областях и многолетним педагогическим опытом. В работе придерживается индивидуального подхода к ученикам, стремится раскрыть их потенциал. Отличается добротой и отзывчивостью, создаёт на уроках атмосферу доверия и взаимопонимания."
+            },
+            teacher2: {
+                name: "Снопкова Юлия Юрьевна",
+                subject: "Информатика",
+                degree: "А312",
+                experience: "-",
+                description: "Снопкова Юлия Юрьевна — преподаватель информатики. Специализируется на программировании и алгоритмах. Использует современные методики обучения, помогает студентам освоить практические навыки разработки. Ведёт кружок по олимпиадному программированию."
+            },
+            teacher3: {
+                name: "Атмайкина Ольга Сергеевна",
+                subject: "Английский язык",
+                degree: "А313",
+                experience: "-",
+                description: "Атмайкина Ольга Сергеевна — преподаватель английского языка высшей категории. Обучает английскому специальности и профессии нашего колледжа."
+            },
+            teacher4: {
+                name: "Александров Виктор Викторович",
+                subject: "Заведующий отделением",
+                degree: "-",
+                experience: "-",
+                description: "-"
+            },
+            teacher5: {
+                name: "Гребнев Виталий Алексеевич",
+                subject: "Безопасность жизнедеятельности",
+                degree: "Б109",
+                experience: "-",
+                description: "-"
+            },
+            teacher6: {
+                name: "Заичкина Оксана Владимировна",
+                subject: "Программирование микроконтроллеров",
+                degree: "Б104",
+                experience: "-",
+                description: "-"
+            },
+            teacher7: {
+                name: "Кузнецова Елена Геннадьевна",
+                subject: "Заведующая отделением",
+                degree: "-",
+                experience: "-",
+                description: "-"
+            },
+            teacher8: {
+                name: "Саку Вероника Владимировна",
+                subject: "Заведующая отделением",
+                degree: "-",
+                experience: "-",
+                description: "-"
+            }
+        };
+
+        // Функция для отображения информации
+        function showTeacherInfo(teacherId) {
+            const teacher = teachersData[teacherId];
+            const infoDiv = document.getElementById('teacherInfo');
+
+            if (teacher) {
+                infoDiv.innerHTML = `
+                    <div class="teacher-card">
+                <div class="teacher-name">${teacher.name}</div>
+                <div class="teacher-details">
+                    <p><strong>Предмет:</strong> ${teacher.subject}</p>
+            <p><strong>Кабинет:</strong> ${teacher.degree}</p>
+            <p><strong>Опыт работы:</strong> ${teacher.experience}</p>
+            <p><strong>О преподавателе:</strong> ${teacher.description}</p>
+                </div>
+            </div>
+        `;
+            } else {
+                infoDiv.innerHTML = '<div class="default-message">Выберите преподавателя из списка, чтобы увидеть информацию.</div>';
+            }
+        }
+
+        // Добавляем обработчик события на выпадающий список
+        document.getElementById('teacherSelect').addEventListener('change', function() {
+            showTeacherInfo(this.value);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "interactive-college-map",
+  "version": "0.0.1",
+  "description": "Интерактивная карта для студента",
+  "license": "ISC",
+  "author": "Alecksey Alecksandrov",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}

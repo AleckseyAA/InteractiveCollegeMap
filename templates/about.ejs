@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Стили для раздела «О нас» */
+        .about-us {
+            padding: 60px 20px;
+            background-color: #F5F5DC; /* светло‑бежевый, «бумажный» эффект */
+            color: #333; /* тёмно‑серый текст для контраста */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-us h2 {
+            text-align: center;
+            font-size: 2.8em;
+            color: #00008B; /* тёмно‑синий (как лента диплома) */
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .about-us h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #daa520; /* золотой цвет */
+            margin: 15px auto;
+        }
+
+        .about-us__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .about-us__content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-us__text {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .about-us__text strong {
+            color: #daa520; /* золотой акцент */
+        }
+
+        .about-us__features h3,
+        .about-us__why h3 {
+            color: #00008B; /* тёмно‑синий заголовок */
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+
+        .about-us__features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-us__features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .about-us__features li::before {
+            content: '•';
+            color: #daa520; /* золотые маркеры */
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-us__why p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #444; /* чуть более светлый серый для параграфов */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>
+            <img src="images\logo.png" width="150" alt="Логотип">
+        </span>
+        <nav>
+            <a href="/"><b>Главное</b></a>
+            <a href="about"><b>О нас</b></a>
+            <a href="CabinetSearch"><b>Поиск кабинета</b></a>
+            <a href="teachers"><b>Преподаватели</b></a>
+        </nav>
+    </header>
+
+    <section class="about-us">
+        <div class="container">
+            <h2>О нас</h2>
+            <div class="about-us__content">
+                <div class="about-us__text">
+                    <p><strong>Что такое «Интегральная карта студента»?</strong><br>
+            «Интегральная карта студента» — это сервис, который помогает первокурсникам быстрее адаптироваться в учебном заведении. Наша цель — сэкономить ваше время и снизить стресс в первые месяцы учёбы.</p>
+                </div>
+                <div class="about-us__features">
+                    <h3>Возможности «Интегральной карты студента»</h3>
+                    <ul>
+                        <li>Находим любой кабинет — просто введите номер аудитории, и мы вам расскажем где её искать</li>
+                        <li>Позволяем просмотреть информацию об преподавателях — узнайте стиль преподавания и кабинет преподавателя</li>
+                        <li>Ознакамливаем с картой кампуса — столовая, библиотека, деканат в один клик</li>
+            </ul>
+                </div>
+            </div>
+            <div class="about-us__why">
+                <h3>Почему это важно для первокурсника?</h3>
+                <p>В первый месяц учёбы вы сталкиваетесь с множеством новых задач: запомнить расположение корпусов, познакомиться с преподавателями. Наша карта решает эти задачи за вас — всё в одном месте, просто и удобно!</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
