@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Стили для заголовка и подзаголовка */
+        .main-title {
+            font-size: 3.5em;
+            color: #fff;
+            text-align: center;
+            margin: 60px 0 20px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00008B, #daa520); /* тёмно‑синий → золотой */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(218, 165, 32, 0.3); /* тень в тон золота */
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #00008B; /* тёмно‑синий */
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        /* Стили для блока «Почему мы?» */
+        .why-us-section {
+            padding: 60px 20px;
+            background-color: #F5F5DC; /* светло‑бежевый, «бумажный» фон */
+            text-align: center;
+        }
+
+        .why-us-title {
+            font-size: 2.5em;
+            color: #00008B; /* тёмно‑синий */
+            margin-bottom: 50px;
+            text-align: center;
+            border-bottom: 2px solid #daa520; /* золотая линия */
+            padding-bottom: 15px;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-us-card {
+            background: #fff; /* белый фон карточки */
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 139, 0.1); /* лёгкая тень в тёмно‑синем тоне */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #E0E0E0; /* тонкая серая рамка */
+        }
+
+        .why-us-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.2); /* акцентная тень в золотом */
+        }
+
+        .why-us-card h3 {
+            color: #daa520; /* золотой заголовок */
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .why-us-card p {
+            color: #444; /* тёмно‑серый текст для лучшей читаемости */
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>
+            <img src="images\logo.png" width="150" alt="Логотип Канского политехнического колледжа">
+        </span>
+        <nav>
+            <a href="/"><b>Главное</b></a>
+            <a href="about"><b>О нас</b></a>
+            <a href="CabinetSearch"><b>Поиск кабинета</b></a>
+            <a href="teachers"><b>Преподаватели</b></a>
+        </nav>
+    </header>
+
+    <!-- Красивый заголовок -->
+    <h1 class="main-title">Канский политехнический колледж</h1>
+
+    <section class="why-us-section">
+        <!-- Подзаголовок -->
+        <h2 class="subtitle">Почему стоит выбрать нас?</h2>
+
+        <div class="why-us-grid">
+            <div class="why-us-card">
+                <h3>Опыт и традиции</h3>
+                <p>Колледж работает более 60 лет — с 1958 года. Учебное заведение сохранило лучшие педагогические традиции и дополнило их современными технологиями обучения.</p>
+            </div>
+
+            <div class="why-us-card">
+                <h3>Широкий выбор специальностей</h3>
+                <p>В колледже доступно 10 программ подготовки специалистов среднего звена, 5 программ рабочих профессий и дополнительные курсы — каждый найдёт направление по интересам.</p>
+            </div>
+
+            <div class="why-us-card">
+                <h3>Практика на реальных предприятиях</h3>
+                <p>Студенты проходят стажировки в ведущих компаниях региона и получают профессиональный опыт ещё во время учёбы.</p>
+            </div>
+
+            <div class="why-us-card">
+                <h3>Современное оборудование</h3>
+                <p>Лаборатории и мастерские оснащены по стандартам WorldSkills — студенты работают с теми же инструментами, что и профессионалы отрасли.</p>
+            </div>
+
+            <div class="why-us-card">
+                <h3>Участие в чемпионатах</h3>
+                <p>Студенты колледжа — призёры региональных и национальных чемпионатов WorldSkills Russia, в т. ч. по геодезии и лабораторному анализу.</p>
+            </div>
+
+            <div class="why-us-card">
+                <h3>Трудоустройство выпускников</h3>
+                <p>92 % выпускников находят работу в течение 3 месяцев после окончания колледжа. Учебное заведение помогает с трудоустройством через партнёрские компании.</p>
+            </div>
+
+
+            <div class="why-us-card">
+                <h3>Бесплатное питание</h3>
+                <p>Для студентов, обучающихся на профессии и проживающих в общежитии. Комплексные обеды и ужины в столовой колледжа.</p>
+            </div>
+
+            <div class="why-us-card">
+                <h3>Спортивные секции</h3>
+                <p>Бесплатные занятия в секциях колледжа: волейбол, баскетбол и многое другое.</p>
+            </div>
+
+            <div class="why-us-card">
+                <h3>Электронная читательская библиотека</h3>
+                <p>Доступ к учебникам, научным статьям и художественной литературе 24/7 с любого устройства.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
